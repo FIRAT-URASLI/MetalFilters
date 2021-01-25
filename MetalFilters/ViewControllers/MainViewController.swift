@@ -34,8 +34,12 @@ class MainViewController: UIViewController {
     }
     
     private func setupScrollView() {
-        scrollView = MTScrollView(frame: photoView.bounds)
+        scrollView = MTScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height / 2))
+        photoView.translatesAutoresizingMaskIntoConstraints = false
         photoView.addSubview(scrollView)
+        photoView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        photoView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        photoView.heightAnchor.constraint(equalToConstant: view.frame.height / 2).isActive = true
     }
     
     fileprivate func requestPhoto() {
