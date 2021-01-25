@@ -44,6 +44,16 @@ class PhotoEditorViewController: UIViewController {
         
         setupNavigationBar()
         
+        
+        previewView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(previewView)
+        previewView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        previewView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        previewView.heightAnchor.constraint(equalToConstant: view.frame.height / 2).isActive = true
+        
+        
+        imageView = MTIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height/2))
+        
         imageView = MTIImageView(frame: previewView.bounds)
         imageView.resizingMode = .aspectFill
         imageView.backgroundColor = .clear
